@@ -14,7 +14,13 @@ connectDB();
 const server = express();
 
 // middleware
-server.use(cors());
+server.use(
+  cors({
+    origin: ["https://blog-web-iota-two.vercel.app"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 server.use(express.json());
 
 //Router
